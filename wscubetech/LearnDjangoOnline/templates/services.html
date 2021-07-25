@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+{% include 'header.html' %}
+
+{% block content %}
+
+    <div class="jumbotron" style="background-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url(/static/images/1.jpg); /* Orange */
+  color: #ffffff;">
+  <h1 style="text-align: center;">Services</h1>
+  <p style="text-align: justify; font-size: 1.2em;
+    margin: 0;
+    padding: 50px;">Computer science is the study of algorithmic processes, computational machines and computation itself.
+    As a discipline, computer science spans a range of topics from theoretical studies of algorithms,
+    computation and information to the practical issues of implementing computational systems in
+    hardware and software.
+    <br><br>
+  </p></div>
+{% endblock %}
+
+
+<div class="row">
+  <div class="col-12">
+    <form method="get">
+      <div class="form-group">
+      <input type="text" name="servicename" placeholder="You Can Search Here!" class="form-control"/><br>
+      <button type="submit" value="submit" class="btn btn-default">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+<br>
+
+<div class="row">
+  {% for i in service %}
+<div class="col-lg-4 col-md-6" style="background:brown;">
+  <div class="single-feature mb-30">
+    <div class="title d-flex flex-row pb-20">
+      <span class="{{i.service_icon}}"></span>
+      <h4><a href="#">{{i.service_title}}</a></h4>
+    </div>
+    <p>{{i.service_des | upper | safe}}</p>
+  </div>
+</div>
+  {% empty %}
+  <h2>No Data Found.</h2>
+  {% endfor %}
+</div>
+
+
+
+<br><br>
+{% include 'footer.html' %}

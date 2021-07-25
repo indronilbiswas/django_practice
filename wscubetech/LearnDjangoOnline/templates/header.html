@@ -1,0 +1,17 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Computer Science Technology</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="{% if request.path == '/' %} active {% endif %}" ><a href="{% url 'home' %}" >Home</a></li>
+      <li class="{% if request.path == '/about/' %} active {% endif %}"><a href="{% url 'about' %}" >About Us</a></li>
+      <li class="{% if request.path == '/services/' %} active {% endif %}"><a href="{% url 'services' %}" >Services</a></li>
+      <li class="{% if request.path == '/contact/' %} active {% endif %}"><a href="{% url 'contact' %}" >Contact Us</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
